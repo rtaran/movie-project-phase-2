@@ -1,0 +1,66 @@
+# Setting up a GitHub Repository for Your Movie Database Application
+
+To push your code to GitHub with local changes as priority, follow these steps:
+
+## 1. Create a New Repository on GitHub
+
+1. Go to [GitHub](https://github.com/) and sign in to your account
+2. Click on the "+" icon in the top right corner and select "New repository"
+3. Enter a name for your repository (e.g., "movie-database-app")
+4. Add a description (optional)
+5. Choose whether the repository should be public or private
+6. **Important:** Do NOT initialize the repository with a README, .gitignore, or license as you already have these files locally
+7. Click "Create repository"
+
+## 2. Connect Your Local Repository to GitHub
+
+After creating the repository, GitHub will show you commands to connect your existing repository. Use the following commands:
+
+```bash
+# Add the GitHub repository as a remote named "origin"
+git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+
+# Verify that the remote was added correctly
+git remote -v
+
+# Push your local repository to GitHub, setting the local main branch to track the remote main branch
+git push -u origin main
+```
+
+Replace `YOUR-USERNAME` with your GitHub username and `YOUR-REPOSITORY-NAME` with the name you gave your repository.
+
+## 3. Handling Conflicts (Local Priority)
+
+You've already configured Git to prioritize local changes during merges with:
+
+```bash
+git config --local merge.ours.driver true
+```
+
+This ensures that when there are conflicts between local and remote changes, Git will prefer your local changes.
+
+## 4. For Future Updates
+
+After making changes to your local repository:
+
+```bash
+# Add all changes to staging
+git add .
+
+# Commit the changes
+git commit -m "Description of changes"
+
+# Push to GitHub
+git push
+```
+
+## 5. If You Need to Pull Changes from GitHub
+
+```bash
+# Pull changes from GitHub
+git pull
+
+# If there are conflicts, your local changes will be prioritized
+```
+
+Your Movie Database Application is now on GitHub, and you're set up to continue development with local changes taking priority!
